@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Business Directory - Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <header id="sticky-header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html"><img src="./img/header logo.png" alt="logo" width="50"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="business.html">Businesses</a></li>
+                <li><a href="about us.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+<br><br>
+    <section class="contact-form">
+        <h2>Welcome back</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+            <input type="submit" value="Sign in" class="submit-btn">
+        </form>
+
+        <div class="forgot-password">
+            <a href="#">Forgot Password?</a>
+            <p>Don't have an account? <a href="sign up.html">Sign up</a></p>
+        </div>
+    </section>
+
+    <script>
+        // Login form submission
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the usual way
+
+            // Get the input values
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Retrieve user data from localStorage
+            const storedUserEmail = localStorage.getItem('userEmail');
+            const storedUserPassword = localStorage.getItem('userPassword'); // Assume password was stored securely
+
+            // Check if email and password match
+            if (email === storedUserEmail && password === storedUserPassword) {
+                // Save login status to localStorage
+                localStorage.setItem('isLoggedIn', true);
+
+                // Redirect to profile page after successful login
+                window.location.href = 'User profile.html';
+            } else {
+                alert('Incorrect email or password. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

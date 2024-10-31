@@ -1,0 +1,106 @@
+
+
+/* ####### New style ##### */
+
+/* General styles */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+}
+
+.business-details {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgb(252, 246, 240);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.business-details img {
+  display: block;
+  width: 100%;
+  maxwidth: 300px;
+  height: auto;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+.business-details p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #000000;
+  margin: 10px 0;
+}
+
+.business-details a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.business-details a:hover {
+  text-decoration: underline;
+}
+
+/* Google Maps iframe styling */
+.business-details iframe {
+  display: block;
+  width: 100%;
+  height: 350px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .business-details {
+    padding: 15px;
+  }
+
+  .business-details p {
+    font-size: 16px;
+  }
+
+  .business-details img {
+    max-width: 100%;
+  }
+
+  .business-details iframe {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 24px;
+  }
+
+  .business-details p {
+    font-size: 14px;
+  }
+
+  .business-details iframe {
+    height: 200px;
+  }
+}
+/* ### blur  */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+  padding: 10px;
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+header.blurred {
+  backdrop-filter: blur(10px); /* Blur effect */
+  background-color: rgba(255, 255, 255, 0.1); /* Even more transparent background */
+}

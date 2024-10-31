@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Business Directory</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <header id="sticky-header">
+        <nav class="navbar">
+            <div class="logo">
+               <a href="index.html"><img src="./img/header logo.png" alt="logo" width="50" class="logo"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="business.html">Businesses</a></li>
+                <li><a href="about us.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <br><br>
+    <section class="contact-form">
+        <h2>Create an Account</h2>
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Create a password">
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirm your password">
+            </div>
+            <input type="submit" value="Sign up" class="submit-btn">
+        </form>
+        <br>
+        <p id="success-message" style="display:none; color: green;">Registration successful!</p>
+        <div class="forgot-password">
+            <p>Have an account? <a href="login.html">Login</a></p>
+        </div>
+    </section>
+
+    <script>
+        // Handle form submission
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the usual way
+            
+            // Get input values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // Save data to localStorage
+            localStorage.setItem('userName', name);
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userPassword', password); // Not secure, only for testing
+
+            // Show success message
+            document.getElementById('success-message').style.display = 'block';
+
+            // Redirect to profile page after a delay
+            setTimeout(() => {
+                window.location.href = 'User profile.html';
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

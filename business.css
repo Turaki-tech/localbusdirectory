@@ -1,0 +1,323 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'poppins', sans-serif;
+    line-height: 1.6;
+    height: 100%;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgb(15, 32, 109);
+  padding: 5px 10px;
+  /* Semi-transparent background */
+  padding: 10px;
+  transition: backdrop-filter 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+header {
+    background-color: rgb(15, 32, 109);
+    padding: 5px 10px;
+}
+
+header.blurred {
+  backdrop-filter: blur(10px); /* Blur effect */
+  background-color: rgba(255, 255, 255, 0.1); /* Even more transparent background */
+}
+
+
+/*#### nav bar ####*/
+
+nav a{
+    text-align:center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding:5px 15px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding:10px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #e48b0d;
+    border-radius:50px;
+    padding:5px 15px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.hamburger span {
+    background-color: #fff;
+    height: 2px;
+    width: 20px;
+    margin: 2.6px 0;
+    transition: all 0.4s ease;
+}
+
+/* Hide nav-links on mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: rgb(15, 32, 109);
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: Center;
+        margin: 15px 0;
+        gap:5px;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hamburger to X animation */
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+
+
+
+
+
+/* Search Box */
+.search {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.search input {
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    padding: 10px;
+    width: 50%;
+    max-width: 400px;
+    font-size: 16px;
+}
+
+/* Business Listings */
+.business-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.business-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.business-item:hover {
+    transform: scale(1.05);
+}
+
+.business-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.business-item h3 {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+.business-item p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    buttom: 0;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+
+    .search input {
+        width: 80%;
+    }
+
+    .business-item {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .business-item {
+        width: 100%;
+    }
+
+    .search input {
+        width: 90%;
+    }
+}
+
+.business-list a{
+    text-decoration:none;
+}
+
+/*#### buz details####*/
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-top: 20px;
+}
+
+.business-details {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: rgb(252, 246, 240);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.business-details img {
+  display: block;
+  width: 100%;
+  maxwidth: 300px;
+  height: auto;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+.business-details p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #000000;
+  margin: 10px 0;
+}
+
+.business-details a {
+  color: #1e90ff;
+  text-decoration: none;
+}
+
+.business-details a:hover {
+  text-decoration: underline;
+}
+
+/* Google Maps iframe styling */
+.business-details iframe {
+  display: block;
+  width: 100%;
+  height: 350px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .business-details {
+    padding: 15px;
+  }
+
+  .business-details p {
+    font-size: 16px;
+  }
+
+  .business-details img {
+    max-width: 100%;
+  }
+
+  .business-details iframe {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 24px;
+  }
+
+  .business-details p {
+    font-size: 14px;
+  }
+
+  .business-details iframe {
+    height: 200px;
+  }
+}
+
+ .contact-form h2{
+    color: #e48b0d;
+ }
+ 
+.contact-form p{
+    color: rgb(15, 32, 109);
+ }
+ 
+.contact-form{
+    text-align: center;
+ }
